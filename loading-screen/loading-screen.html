@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Loading Screen</title>
+  <style>
+   
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #0f0f0f, #000);
+      overflow: hidden;
+    }
+
+    .loader {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 5px solid transparent;
+      border-top: 5px solid #00ffe0;
+      border-right: 5px solid #00ffe0;
+      animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+    }
+
+   
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+      }
+      to {
+        box-shadow: 0 0 30px #00ffe0, 0 0 60px #00ffe0;
+      }
+    }
+
+   
+    .text {
+      position: absolute;
+      bottom: 120px;
+      color: #00ffe0;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: fade 2s ease-in-out infinite alternate;
+    }
+
+     @keyframes fade {
+      from {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader"></div>
+  <div class="text">Loading...</div>
+</body>
+</html>
