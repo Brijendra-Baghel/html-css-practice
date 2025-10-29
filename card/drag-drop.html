@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drag & Drop Card</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .dropzone {
+      width: 200px;
+      height: 300px;
+      border: 2px dashed #4b5563;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .dropzone.hovered {
+      border-color: #00ffe0;
+      background: rgba(0, 255, 224, 0.1);
+    }
+
+    .card {
+      width: 180px;
+      height: 250px;
+      background: #1e293b;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 224, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: grab;
+      transition: 0.3s;
+    }
+
+    .card:active {
+      cursor: grabbing;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dropzone" id="zone1">
+      <div class="card" draggable="true" id="card">Drag Me</div>
+    </div>
+    <div class="dropzone" id="zone2">Drop Here</div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    dropzones.forEach((zone) => {
+      zone.addEventListener("dragover", (e) => e.preventDefault());
+
+      zone.addEventListener("dragenter", () =>
+        zone.classList.add("hovered")
+      );
+
+      zone.addEventListener("dragleave", () =>
+        zone.classList.remove("hovered")
+      );
+
+      zone.addEventListener("drop", () => {
+        zone.classList.remove("hovered");
+        zone.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
