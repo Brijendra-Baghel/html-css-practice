@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half Circle Spinner</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a;
+    }
+
+    .spinner {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      animation: spin 1.5s linear infinite;
+    }
+
+    .half {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 10px solid transparent;
+      border-top-color: #00ffe0;
+      border-radius: 50%;
+    }
+
+    .half.right {
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .half.left {
+      clip-path: inset(0 0 0 50%);
+      border-top-color: #ff0080;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner">
+    <div class="half right"></div>
+    <div class="half left"></div>
+  </div>
+</body>
+</html>
