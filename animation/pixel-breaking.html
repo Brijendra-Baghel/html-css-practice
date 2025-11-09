@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breaking Pixel Animation </title>
+<style>
+  body {
+    background: #111827;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  .pixel {
+    width: 12px;
+    height: 12px;
+    background: #ff006a;
+    animation: scatter 1s infinite alternate ease-in-out;
+  }
+
+  .pixel:nth-child(odd) {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes scatter {
+    0% {
+      transform: translate(0,0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(
+        calc(8px - 16px * var(--randx)),
+        calc(8px - 16px * var(--randy))
+      )
+      scale(0.5);
+      opacity: 0.3;
+    }
+  }
+
+  /* Random scatter per pixel */
+  .pixel { --randx: 1; --randy: -1; }
+  .pixel:nth-child(2) { --randx: -1; --randy: 1; }
+  .pixel:nth-child(3) { --randx: 1; --randy: 1; }
+  .pixel:nth-child(4) { --randx: -1; --randy: -1; }
+  .pixel:nth-child(5) { --randx: 0; --randy: 1; }
+  .pixel:nth-child(6) { --randx: 1; --randy: 0; }
+  .pixel:nth-child(7) { --randx: -1; --randy: 0; }
+  .pixel:nth-child(8) { --randx: 0; --randy: -1; }
+  .pixel:nth-child(9) { --randx: 1; --randy: -1; }
+  .pixel:nth-child(10) { --randx: -1; --randy: 1; }
+  .pixel:nth-child(11) { --randx: 1; --randy: 1; }
+  .pixel:nth-child(12) { --randx: -1; --randy: -1; }
+  .pixel:nth-child(13) { --randx: 0; --randy: 1; }
+  .pixel:nth-child(14) { --randx: 1; --randy: 0; }
+  .pixel:nth-child(15) { --randx: -1; --randy: 0; }
+  .pixel:nth-child(16) { --randx: 0; --randy: -1; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+  <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+  <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+  <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+</div>
+</body>
+</html>
