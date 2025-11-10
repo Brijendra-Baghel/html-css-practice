@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wave Collapse Loader</title>
+<style>
+  body{
+    height:100vh;
+    background:#111827;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(6,14px);
+    gap:6px;
+  }
+
+  .cell{
+    width:14px;
+    height:14px;
+    background:#ff0077;
+    animation:collapse 1s infinite;
+  }
+
+  /* Stagger delays to form wave pattern */
+  .cell:nth-child(6n+1){animation-delay:0s;}
+  .cell:nth-child(6n+2){animation-delay:0.1s;}
+  .cell:nth-child(6n+3){animation-delay:0.2s;}
+  .cell:nth-child(6n+4){animation-delay:0.3s;}
+  .cell:nth-child(6n+5){animation-delay:0.4s;}
+  .cell:nth-child(6n+6){animation-delay:0.5s;}
+
+  @keyframes collapse{
+    0%{transform:scale(1);opacity:1;}
+    50%{transform:scale(0.2);opacity:0.2;}
+    100%{transform:scale(1);opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grid">
+  <!-- 36 cells -->
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+  <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+</div>
+
+</body>
+</html>
