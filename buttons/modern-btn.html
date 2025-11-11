@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Modern Glass Glow Button</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0d0d0d;
+        font-family: Arial, sans-serif;
+    }
+
+    .glow-btn {
+        padding: 14px 40px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        color: #fff;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s ease;
+        outline: none;
+    }
+
+    .glow-btn::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -60%;
+        left: -60%;
+        background: linear-gradient(120deg, #00ffd5, #0066ff, #ff00f7);
+        transform: rotate(25deg);
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .glow-btn:hover::before {
+        opacity: 1;
+    }
+
+    .glow-btn:hover {
+        color: #111;
+        background: white;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4),
+                    0 0 50px rgba(255, 0, 255, 0.2);
+    }
+</style>
+</head>
+<body>
+
+<button class="glow-btn">Click Me</button>
+
+</body>
+</html>
