@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Card</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .flip-card {
+      perspective: 1000px;
+    }
+
+    .flip-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+    }
+
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-900 flex items-center justify-center p-6">
+
+  <div class="flip-card w-full max-w-xs sm:max-w-sm md:max-w-md">
+    <div class="flip-inner relative w-full h-80 sm:h-96">
+
+      <!-- Front Side -->
+      <div class="flip-front absolute inset-0 bg-gray-800 rounded-2xl overflow-hidden shadow-xl flex flex-col items-center justify-center p-4">
+        <img src="https://picsum.photos/300" class="w-40 h-40 rounded-xl object-cover mb-4">
+        <h2 class="text-white text-xl font-semibold">Modern Flip Card</h2>
+        <p class="text-gray-300 text-sm mt-2 text-center px-3">Hover to reveal the back side</p>
+      </div>
+
+      <!-- Back Side -->
+      <div class="flip-back absolute inset-0 bg-[#00ffe0]/20 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl flex flex-col items-center justify-center p-6 text-center">
+        <h2 class="text-white text-2xl font-bold">Details</h2>
+        <p class="text-gray-200 mt-3">This is a fully responsive 3D flip card built with Tailwind and CSS animations.</p>
+        <button class="mt-6 px-6 py-2 bg-white/20 text-white rounded-full border border-white/30 hover:bg-white/40 transition">
+          Learn More
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
